@@ -1,0 +1,84 @@
+<style>
+    .featured-products {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: blue;
+    }
+    .products-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .product-card {
+        flex: 1;
+        min-width: 250px;
+        max-width: calc(25% - 1.5rem);
+        text-align: center;
+    }
+    .product-card img {
+        width: 100%;
+        height: auto;
+    }
+    .product-card a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+
+<div class="featured-products">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="products-flex">
+
+        {% for product in collections.all.products limit: 4 %}
+            <div class="product-card">
+                <a href=" {{ product.url }}">
+                    <img 
+                        src="{{ product.featured_image | image_url: '300x300' }}" 
+                        alt="{{ product.title }}"
+                        width="300"
+                        height="300"
+                    >
+                    <h3>{{ product.title }}</h3>
+                    <p>{{ product.price | money }}</p>
+                    <p></p>
+                </a>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Featured Products",
+    "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Section Title",
+                "default": "Feature Products (default text)"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Collection"
+            },
+            {
+                "type": "range",
+                "id": "products_to_show",
+                "min": 2,
+                "max": 12,
+                "step": 1,
+                "default": 4,
+                "label": "Number of products to show"
+            }
+        ],
+    "presets": [
+        {
+            "name": "Featured Proucts"
+        }
+    ]
+}
+{% endschema %}
