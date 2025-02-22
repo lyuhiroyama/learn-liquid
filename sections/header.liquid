@@ -1,0 +1,57 @@
+<style>
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    header ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    header a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    header a:hover {
+        text-decoration: underline;
+    }
+
+    header nav .nav-action-div {
+        display: flex;
+        gap: 1rem;
+    }
+
+
+
+
+</style>
+<header>
+    <nav>
+        <h1>Test Store</h1>
+        
+        <ul>
+            <li><a href="/collections/shirts">Shirts</a></li>
+            <li><a href="/collections/pants">Pants</a></li>
+            <li><a href="/collections/socks">Socks</a></li>
+        </ul>
+
+        <div class="nav-action-div">
+            <a href="/cart">Cart</a>
+            <a href="/account">Account</a>
+        </div>
+    </nav>
+</header>
+
+{% schema %}
+{
+    "name": "Header",
+    "settings": [
+        
+        ]
+}
+{% endschema %}

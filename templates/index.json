@@ -1,11 +1,4 @@
 {
-    "sections": {
-        "banner": {
-            "type": "banner",
-            "settings": {}
-        }
-    },
-    "order": [
-        "banner"
-    ]
+    "sections": {},
+    "order": []
 }
